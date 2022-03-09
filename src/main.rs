@@ -4,17 +4,6 @@ use std::convert::From;
 enum LogType {
     Replay,
     Record,
-    Invalid,
-}
-
-impl From<&str> for LogType {
-    fn from(txt: &str) -> Self {
-        match txt {
-            "REPLAY" => LogType::Replay,
-            "RECORD" => LogType::Record,
-            _ => LogType::Invalid,
-        }
-    }
 }
 
 impl From<LogType> for &str {
@@ -22,7 +11,6 @@ impl From<LogType> for &str {
         match log_type {
             LogType::Replay => "REPLAY",
             LogType::Record => "RECORD",
-            LogType::Invalid => "INVALID",
         }
     }
 }
